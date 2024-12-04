@@ -1,12 +1,12 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Service
 metadata:
-  name: kube-demo
+  name: service-load-balancer-service
 spec:
-  type: LoadBalancer
+  selector:
+    app: kube-demo
   ports:
-    - port: 9090
-      protocol: TCP
-
-selector:
-  app: kube-demo
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
