@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: kube-demo
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 9090
+      protocol: TCP
+
+selector:
+  app: kube-demo
