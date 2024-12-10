@@ -16,6 +16,10 @@ spec:
       containers:
       - name: kube-demo
         image: root/kubedemo:v2
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
         imagePullPolicy: Never
         ports:
         - containerPort: 8080
